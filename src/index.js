@@ -1,3 +1,6 @@
+import AgentAPI from "apminsight";
+AgentAPI.config();
+
 import express from 'express';
 import {matchRouter} from "./routes/matches.js";
 import http from "http";
@@ -19,7 +22,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to SportsCore API');
 });
 
-app.use(securityMiddleware());
+// app.use(securityMiddleware());
 
 app.use('/matches', matchRouter);
 app.use('/matches/:id/commentary', commentaryRouter)
